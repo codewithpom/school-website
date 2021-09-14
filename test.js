@@ -2,7 +2,7 @@ const fs = require('fs');
 const mailer = require("./email_test")
 const crypto = require("crypto");
 
-export function isEmailValid(email) {
+function isEmailValid(email) {
     const emailRegex = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
     if (!email)
         return false;
@@ -25,16 +25,17 @@ export function isEmailValid(email) {
 
     return true;
 }
-export function username_exists(username) {
+
+ function username_exists(username) {
     const usernames = JSON.parse(fs.readFileSync("data/usernames.json"));
     if (username in Object.values(usernames)) {
-        return false;
-    } else {
         return true;
+    } else {
+        return false;
     }
 }
 
-export function email_taken(email) {
+function email_taken(email) {
     const emails = Object.keys(JSON.parse(fs.readFileSync("data/usernames.json").toString()));
     if (email in emails) {
         return false;
@@ -42,7 +43,7 @@ export function email_taken(email) {
 }
 
 
-export function create_account(username, password, email) {
+function create_account(username, password, email) {
     const username_exists_or_not = username_exists(username);
     if (username_exists_or_not) {
         return false;
@@ -67,7 +68,7 @@ export function create_account(username, password, email) {
 };
 
 
-export function verify(code) {
+function verify(code) {
     const codes_data = JSON.parse(fs.readFileSync("data/codes.json"));
     for (const iterator of codes_data['items']) {
         if (iterator['code'] == code) {
@@ -83,7 +84,7 @@ export function verify(code) {
 };
 
 
-export function login(email, password) {
+function login(email, password) {
     const accounts = JSON.parse(fs.readFileSync("data/accounts.json"));
     if (accounts[email] === password) {
         return true;
@@ -93,3 +94,9 @@ export function login(email, password) {
 
 };
 
+module.exports.login = login;
+module.exports.verify = verify;
+module.exports.create_account = create_account;
+module.exports.email_taken = email_taken;
+module.exports.username_exists = username_exists;
+module.exports.isEmailValid = isEmailValid;

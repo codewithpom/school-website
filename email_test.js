@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-export function send_email(email, code){
+function send_email(email, code){
     const mailOptions = {
         from: 'padmashreejha717@gmail.com',
         to: 'padmashreegithub@gmail.com',
@@ -28,3 +28,6 @@ export function send_email(email, code){
     });
 
 }
+
+
+module.exports = send_email;
