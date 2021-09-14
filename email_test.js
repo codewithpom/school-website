@@ -11,23 +11,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-function send_email(email, code){
-    const mailOptions = {
-        from: 'padmashreejha717@gmail.com',
-        to: 'padmashreegithub@gmail.com',
-        subject: 'Verification Code',
-        text: `This is the verification link for Books ${code} click on it to verify your account`
-    };
-
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
+function send_email(email, code) {
 
 }
 
 
-module.exports = send_email;
+module.exports.send_email = send_email;

@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const functions = require("./test");
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const fs = require('fs');
 const app = express();
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,7 +22,7 @@ app.get("/login", (req, res) => {
             res.clearCookie("password");
             res.sendFile(__dirname + "/templates/login.html")
         }
-    } else{
+    } else {
         res.sendFile(__dirname + "/templates/login.html");
     }
 
@@ -54,7 +55,7 @@ app.get("/create", (req, res) => {
 });
 
 app.post("/create", (req, res) => {
-    const email = req.body.email;
+    let email = req.body.email;
     const password = req.body.password;
     const username = req.body.username;
     console.log(email);
@@ -63,11 +64,12 @@ app.post("/create", (req, res) => {
     if (username === email === password === undefined) {
         res.send("Wrong Form body");
     }
+    email = email.replace(" ", "");
     const username_exists = functions.username_exists(username);
     if (username_exists) {
         res.send("Username Already taken");
     } else {
-        if (functions.isEmailValid(email)) {
+        if (!functions.isEmailValid(email)) {
             res.send("Email not correct");
         } else {
             if (functions.email_taken(email)) {
@@ -76,13 +78,31 @@ app.post("/create", (req, res) => {
                 functions.create_account(username, password, email);
                 res.send("Verification link sent")
             }
-        }        
+        }
     }
 
 })
 
+app.get("/verify", (req, res) => {
+    const code = req.query.code;
+    if (code === undefined) {
+        res.send("This place is for verification");
+    } else {
+        const data_of_code = functions.verify(code);
+        if (data_of_code) {
+            const data = JSON.parse(fs.readFileSync("data/accounts.json"));
+            data[data_of_code['email']] = data_of_code['password'];
+            fs.writeFileSync("data/accounts.json", JSON.stringify(data));
+            res.cookie("email", data_of_code['email']);
+            res.cookie("password", data_of_code['password']);
+            res.send("Account Verified and Logged In");
+        } else {
+            res.send("Wrong Code");
+        }
 
+    }
+})
 app.listen(80, () => {
     console.log(`Server started on port 80`);
-    
+
 })
