@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="row pb-5">
+    <div class="form-container col-10 offset-1 col-md-8 offset-md-2 mt-5 px-5 py-5 shadow-lg rounded position-relative">
+      <div class="cover d-none"></div>
+      <div class="alert alert-danger text-center d-none">
+        <!--Error goes here-->
+      </div>
+      <form action="" id="login-form">
+        <p class="h2 text-center">Login to increase your knowledge!</p>
+        <div class="form-group mt-5">
+          <input class="form-control" type="text" name="email">
+          <label>Email</label>
+        </div>
+        <div class="form-group mt-5">
+          <input class="form-control" type="text" name="password">
+          <label>Password</label>
+        </div>
+        <div class="form-group mt-5">
+          <button type="submit" class="btn btn-primary login-btn mt-4">Login</button>
+          <p class="text-center mt-3">Dont have an account? <a href="#signup-form">Create one</a>.</p>
+        </div>
+      </form>
+      <form action="" id="signup-form" class="d-none">
+        <p class="h2 text-center">Sign up to discover the world!</p>
+        <div class="form-group mt-5 d-flex justify-content-between w-100">
+          <div class="position-relative w-50 mx-1">
+            <input class="form-control w-100" type="text" name="first_name">
+            <label>First Name</label>
+          </div>
+          <div class="position-relative w-50 mx-1">
+            <input class="form-control w-100" type="text" name="last_name">
+            <label>Last Name</label>
+          </div>
+        </div>
+        <div class="form-group mt-5">
+          <input class="form-control" type="text" name="username">
+          <label>Username</label>
+        </div>
+        <div class="form-group mt-5">
+          <input class="form-control" type="text" name="email">
+          <label>Email</label>
+        </div>
+        <div class="form-group mt-5">
+          <input class="form-control" type="text" name="password">
+          <label>Password</label>
+        </div>
+        <div class="form-group mt-5">
+          <button type="submit" class="btn btn-primary login-btn mt-4">Sign up</button>
+          <p class="text-center mt-3">Already have an account? <a href="#login-form">Login</a>.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="../static/libraries/jquery/index.js"></script>
+<script src="../static/libraries/bootstrap/js/index.js"></script>
+<script src="../static/js/user.js"></script>
+</body>
+</html>

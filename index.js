@@ -20,10 +20,10 @@ app.get("/login", (req, res) => {
         } else {
             res.clearCookie("email");
             res.clearCookie("password");
-            res.sendFile(__dirname + "/templates/login.html")
+            res.sendFile(__dirname + "/templates/user.html")
         }
     } else {
-        res.sendFile(__dirname + "/templates/login.html");
+        res.sendFile(__dirname + "/templates/user.html");
     }
 
 });
