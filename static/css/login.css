@@ -4,44 +4,60 @@
 }
 
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @keyframes rise {
-    0%{
+    from{
         opacity: 0;
     }
-    100%{
+    to{
         opacity: 1;
     }
 }
 
 @keyframes comin {
-    0%{
+    from{
         position: absolute;
         left: -200%;
     }
-    100%{
+    to{
         position: absolute;
         left: 0;
+    }
+}
+
+@keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
     }
 }
 
 .row{
     position: absolute;
     width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
     margin: auto;
 }
 
 .shapes{
-    position: sticky;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     left: 0;
     top: 0;
+}
+
+.shape-wrapper{
+    position: absolute;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    animation: rotating 3s linear infinite;
 }
 
 .circle-1{
@@ -102,7 +118,6 @@ body{
 }
 
 .form-container{
-    /*width: 50%;*/
     overflow: hidden;
     min-height: 400px;
 }
