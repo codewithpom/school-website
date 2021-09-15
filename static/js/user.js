@@ -71,4 +71,14 @@ $(document).ready(function () {
         });
         return isEmpt;
     }
+
+    function addBoxShadow() {
+        let color;
+        $('.shapes div').each(function () {
+            color = this.style.background;
+            if(color !== '') $(this).css('box-shadow', `0 0 5px ${color}`);
+        });
+    }
+
+    addBoxShadow();
 });

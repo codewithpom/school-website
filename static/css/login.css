@@ -3,24 +3,118 @@
     padding: 0;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 @keyframes rise {
-    0%{
+    from{
         opacity: 0;
     }
-    100%{
+    to{
         opacity: 1;
     }
 }
 
 @keyframes comin {
-    0%{
+    from{
         position: absolute;
         left: -200%;
     }
-    100%{
+    to{
         position: absolute;
         left: 0;
     }
+}
+
+@keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.row{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+}
+
+.shapes{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.shape-wrapper{
+    position: absolute;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    animation: rotating 3s linear infinite;
+}
+
+.circle-1{
+    position: absolute;
+    left: -20px;
+    top: -40px;
+    width: 400px;
+    height: 400px;
+    background: transparent;
+    border: 20px solid #fa4a2a;
+    border-radius: 50%;
+}
+
+.circle-2{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: #d63f24;
+    border-radius: 50%;
+}
+
+.circle-3{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 300px;
+    height: 300px;
+    background: transparent;
+    border: 30px solid #1270e3;
+    border-radius: 50%;
+}
+
+.circle-4{
+    position: absolute;
+    right: 150px;
+    top: 30%;
+    width: 300px;
+    height: 300px;
+    background: #1270e3;
+    border-radius: 50%;
+}
+
+.square{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.circle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .form-container{
@@ -37,6 +131,10 @@
     left: 0;
     z-index: 999;
     animation: rise .2s;
+}
+
+.alert{
+    animation: rise .4s;
 }
 
 form{
@@ -78,10 +176,26 @@ form .form-group .form-control:focus + label{
     cursor: default;
 }
 
-form .login-btn{
+form .btn{
     width: 200px;
     height: 55px;
     font-size: 20px;
     margin-left: 50%;
     transform: translate(-50%, -50%);
+    background: #fa4a2a;
+    color: rgb(240, 240, 240);
+    border: 0;
+    outline: 0;
+    transition: .4s;
+}
+
+form .btn:hover, form .btn:focus{
+    color: rgb(240, 240, 240);
+    background: #d63f24;
+}
+
+form .btn:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 10px #fa4a2a;
 }
