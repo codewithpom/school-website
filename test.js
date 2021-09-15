@@ -56,7 +56,7 @@ function email_taken(email) {
 }
 
 
-function create_account(username, password, email) {
+function create_account(username, password, email, hostname) {
     const username_exists_or_not = username_exists(username);
     if (username_exists_or_not) {
         return false;
@@ -77,7 +77,7 @@ function create_account(username, password, email) {
                 from: 'padmashreejha717@gmail.com',
                 to: email,
                 subject: 'Verification Code',
-                text: `This is the verification link for Books ${id} click on it to verify your account`
+                text: `This is the verification link for Books ${hostname + "/verify/?code=" + id} click on it to verify your account`
             };
 
             transporter.sendMail(mailOptions, function (error, info) {

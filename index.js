@@ -20,10 +20,10 @@ app.get("/login", (req, res) => {
         } else {
             res.clearCookie("email");
             res.clearCookie("password");
-            res.sendFile(__dirname + "/templates/user.html")
+            res.sendFile(__dirname + "/templates/login.html")
         }
     } else {
-        res.sendFile(__dirname + "/templates/user.html");
+        res.sendFile(__dirname + "/templates/login.html");
     }
 
 });
@@ -75,7 +75,7 @@ app.post("/create", (req, res) => {
             if (functions.email_taken(email)) {
                 res.send("Email Already taken by someone else");
             } else {
-                functions.create_account(username, password, email);
+                functions.create_account(username, password, email, req.protocol + "://" + req.hostname);
                 res.send("Verification link sent")
             }
         }
