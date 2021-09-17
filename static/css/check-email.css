@@ -1,0 +1,18 @@
+body{
+    background: #f1f1f1;
+}
+
+.row{
+    height: 100vh;
+}
+
+.mail-sent img{
+    width: 150px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
