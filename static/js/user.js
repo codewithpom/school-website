@@ -27,7 +27,6 @@ $(document).ready(function () {
 
     function deLoginFrmInpHandler() {
         event.preventDefault();
-        console.log(isEmpty('#login-form'));
         if (isEmpty('#login-form')){
             event.preventDefault();
             $('.alert-danger').html('Please fill out the field below').removeClass('d-none');
@@ -38,7 +37,7 @@ $(document).ready(function () {
     }
 
     function deSignFrmInpHandler() {
-        if (isEmpty('#signup-from')){
+        if (isEmpty('#signup-form')){
             event.preventDefault();
             $('.alert-danger').html('Please fill out the field below').removeClass('d-none');
         }else if (!emailRegEx.test($('#signup-form input[name = email]').val())){

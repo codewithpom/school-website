@@ -67,7 +67,7 @@ body{
     width: 400px;
     height: 400px;
     background: transparent;
-    border: 20px solid #fa4a2a;
+    border: 20px solid #f2463d;
     border-radius: 50%;
 }
 
@@ -182,7 +182,7 @@ form .btn{
     font-size: 20px;
     margin-left: 50%;
     transform: translate(-50%, -50%);
-    background: #fa4a2a;
+    background: #f2463d;
     color: rgb(240, 240, 240);
     border: 0;
     outline: 0;
@@ -197,5 +197,5 @@ form .btn:hover, form .btn:focus{
 form .btn:focus{
     border: 0;
     outline: 0;
-    box-shadow: 0 0 10px #fa4a2a;
+    box-shadow: 0 0 10px #f2463d;
 }

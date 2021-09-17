@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
-  <link rel="stylesheet" href="../static/css/login.css">
+  <link rel="stylesheet" href="../static/css/user.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
   <div class="square" style="background: #cbe319;right: 200px;top: 30%;"></div>
   <div class="square" style="background: #c4064f;left: 30px;top: 45%;animation: rotating 4s linear infinite;"></div>
   <div class="square" style="background: #12009e;right: 100px;top: 60%;animation: rotating 2s linear infinite;"></div>
-  <div class="shape-wrapper" style="left: 230px;top: 100px;right: unset; width: 100px; height: 100px;">
+  <div class="shape-wrapper" style="left: 230px;top: 100px;right: unset; width: 100px; height: 100px;animation: rotating 5s linear infinite;">
     <div class="square" style="background: #1de082;left:100px; top: 5%;"></div>
   </div>
   <div class="circle" style="background: #8c00ff;left: 270px;top: 80%;width: 70px;height: 70px;"></div>
@@ -39,7 +39,7 @@
       <div class="alert alert-danger text-center d-none">
         <!--Error goes here-->
       </div>
-      <form action="" id="login-form">
+      <form action="" id="login-form" autocomplete="off">
         <p class="h2 text-center">Login to increase your knowledge!</p>
         <div class="form-group mt-5">
           <input class="form-control" type="text" name="email">
@@ -54,7 +54,7 @@
           <p class="text-center mt-3">Dont have an account? <a href="#signup-form">Create one</a>.</p>
         </div>
       </form>
-      <form action="" id="signup-form" class="d-none">
+      <form action="" id="signup-form" class="d-none" autocomplete="off">
         <p class="h2 text-center">Sign up to discover the world!</p>
         <div class="form-group mt-5 d-flex justify-content-between w-100">
           <div class="position-relative w-50 mx-1">
