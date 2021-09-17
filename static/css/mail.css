@@ -1,0 +1,49 @@
+body{
+    background: #f1f1f1;
+}
+
+img{
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.verify-img{
+    width: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-verify{
+    width: 200px;
+    height: 55px;
+    font-size: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background: #f2463d;
+    color: rgb(240, 240, 240);
+    border: 0;
+    outline: 0;
+    transition: .4s;
+}
+
+.btn-verify:hover, form .btn-verify:focus{
+    color: rgb(240, 240, 240);
+    background: #d63f24;
+}
+
+.btn-verify:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 10px #f2463d;
+}
+
+.medias a{
+    margin: 0 25px;
+}
+
+.medias img{
+    width: 40px;
+}
