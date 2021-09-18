@@ -85,10 +85,6 @@ img.shape{
 }
 
 /*Join*/
-.row{
-    height: 100vh;
-}
-
 .join img{
     width: 100px;
     margin-left: 50%;
@@ -115,7 +111,7 @@ img.shape{
 .join form .form-group label{
     color: #777;
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: 20px;
     transition: .3s;
     cursor: inherit;
@@ -135,7 +131,6 @@ img.shape{
     font-size: 22px;
     border: 0;
     outline: 0;
-    border-radius: 0px .25rem .25rem 0;
     transition: .3s;
 }
 

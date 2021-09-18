@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
-    <link rel="stylesheet" href="../static/css/join-school.css">
+    <link rel="stylesheet" href="../static/css/create-school.css">
 </head>
 <body>
 
@@ -46,26 +46,48 @@
 </nav>
 
 <!--Join-->
-<div class="row my-5 py-3">
-    <div class="col-10 offset-1 col-md-8 offset-md-2 bg-white p-5 rounded join mt-5 pt-5">
-        <p class="h2 text-center text-secondary">Join Your School</p>
-        <img class="mt-4" src="../static/img/link-svgrepo-com.svg" alt="">
-        <p class="h5 text-center text-secondary mt-5">Please fill out the field below to join your latter home!</p>
-        <form action="" autocomplete="off">
-            <div class="alert alert-danger text-center d-none mt-5">
-                <!--Error goes here-->
-            </div>
-            <div class="form-group mt-5 d-flex">
-                <input class="form-control w-75" type="text" name="email">
-                <label>Code</label>
-                <button class="btn w-25" type="submit">Join <span style="font-size: 30px">&#8594;</span></button>
-            </div>
-        </form>
+<div class="container-fluid mt-5 pt-5 mb-5">
+    <div class="row mt-5">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 bg-white rounded join p-5">
+            <p class="h2 text-center text-secondary">Make you own school</p>
+            <img class="mt-4" src="../static/img/play-svgrepo-com.svg" alt="">
+            <p class="h5 text-center text-secondary mt-5">Create your new education place!</p>
+            <form action="" autocomplete="off">
+                <div class="alert alert-danger text-center d-none mt-5">
+                    <!--Error goes here-->
+                </div>
+                <div class="d-flex">
+                    <div class="form-group mt-5 w-50 p-1">
+                        <input class="form-control" type="text" name="email">
+                        <label>School Name</label>
+                    </div>
+                    <div class="form-group mt-5 w-50 p-1">
+                        <input class="form-control" type="text" name="email">
+                        <label>School Address</label>
+                    </div>
+                </div>
+                <div class="d-flex mt-5">
+                    <div class="form-group w-50 p-1">
+                        <input class="form-control" type="text" name="email">
+                        <label>Support Contact Number</label>
+                    </div>
+                    <div class="form-group w-50 p-1">
+                        <input class="form-control" type="text" name="email">
+                        <label>Support Email</label>
+                    </div>
+                </div>
+                <div class="form-group mt-5 p-1">
+                    <input class="form-control" type="text" name="email">
+                    <label>Name of any high rank officer</label>
+                </div>
+                <button class="btn d-flex align-items-center mt-4 mx-auto px-5" type="submit">Create <span style="font-size: 30px">&#8594;</span></button>
+            </form>
+        </div>
     </div>
 </div>
 
 <script src="../static/libraries/jquery/index.js"></script>
 <script src="../static/libraries/bootstrap/js/index.js"></script>
-<script src="../static/js/school-join.js"></script>
+<script src="../static/js/create-school.js"></script>
 </body>
 </html>
