@@ -1,3 +1,5 @@
+import { sndRqst } from "./send-form";
+
 $(document).ready(function () {
    //Variable
 
@@ -10,9 +12,12 @@ $(document).ready(function () {
 
    //Event handler
     function deFrmSubmtHandler(event) {
-        if ($.trim($('.join form input').val()) == ''){
+        if ($.trim($('.join form input').val()) === ''){
             event.preventDefault();
             $('.join form .alert-danger').html('Please enter a code to join!').removeClass('d-none');
+        }else{
+            let res = sndRqst('join/', '.join form');
+            console.log(res);
         }
     }
 

@@ -1,9 +1,11 @@
+import { sndRqst } from './send-form.js';
+
 $(document).ready(function () {
     //Variable
     let emailRegEx = /[0-9a-zA-Z]+\@+[a-z]+\.+['com']/;
 
     //Event listeners
-    $('.join form').on('submit', deFrmSubmtHandler);
+    $('.create form').on('submit', deFrmSubmtHandler);
 
     $('input').on('blur', deInpBlrHandler).on('focus', deInpFcsHandler);
 
@@ -11,12 +13,14 @@ $(document).ready(function () {
 
     //Event handler
     function deFrmSubmtHandler(event) {
-        if (isEmpty('#signup-form')){
-            event.preventDefault();
+        event.preventDefault();
+        if (isEmpty('.create form')){
             $('.alert-danger').html('Please fill out the field below').removeClass('d-none');
-        }else if (!emailRegEx.test($('#signup-form input[name = email]').val())){
-            event.preventDefault();
+        }else if (!emailRegEx.test($('.create form input[name = email]').val())){
             $('.alert-danger').html('Please enter a valid Email').removeClass('d-none');
+        }else{
+            let res = sndRqst('create/', '.create form');
+            console.log(res);
         }
     }
 
