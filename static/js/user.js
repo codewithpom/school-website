@@ -1,3 +1,5 @@
+import { sndRqst } from "./send-form";
+
 $(document).ready(function () {
     // Variable
     let emailRegEx = /[0-9a-zA-Z]+\@+[a-z]+\.+['com']/;
@@ -25,24 +27,27 @@ $(document).ready(function () {
         }, 1000);
     }
 
-    function deLoginFrmInpHandler() {
+    function deLoginFrmInpHandler(event) {
         event.preventDefault();
         if (isEmpty('#login-form')){
-            event.preventDefault();
             $('.alert-danger').html('Please fill out the field below').removeClass('d-none');
         }else if (!emailRegEx.test($('#login-form input[name = email]').val())){
-            event.preventDefault();
             $('.alert-danger').html('Please enter a valid Email').removeClass('d-none');
+        }else{
+            let res = sndRqst('login/', '#login-form');
+            console.log(res);
         }
     }
 
-    function deSignFrmInpHandler() {
+    function deSignFrmInpHandler(event) {
+        event.preventDefault();
         if (isEmpty('#signup-form')){
-            event.preventDefault();
             $('.alert-danger').html('Please fill out the field below').removeClass('d-none');
         }else if (!emailRegEx.test($('#signup-form input[name = email]').val())){
-            event.preventDefault();
             $('.alert-danger').html('Please enter a valid Email').removeClass('d-none');
+        }else{
+            let res = sndRqst('signup/', '#signup-form');
+            console.log(res);
         }
     }
 

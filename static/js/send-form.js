@@ -1,5 +1,5 @@
 export function sndRqst(url, form) {
-    let data = new FormData(form); // Create the data to send
+    let data = new FormData(document.querySelector('form')); // Create the data to send
     let xhtp; //To store the request object
     let response; //To return the response from server
 
