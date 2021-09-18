@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
+    <link rel="stylesheet" href="../static/css/join-school.css">
+</head>
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="btn btn-danger d-lg-none">Login</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-lg-auto">
+                <li class="nav-item p-3">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown px-5 py-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Docs
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Student</a></li>
+                        <li><a class="dropdown-item" href="#">Teacher</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Developers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="#">Join your school</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="#">Make your online school</a>
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-danger d-none d-lg-block">Login</button>
+    </div>
+</nav>
+
+<!--Join-->
+<div class="row d-flex align-items-center">
+    <div class="col-10 offset-1 col-md-8 offset-md-2 bg-white p-5 rounded join mt-5 pt-4">
+        <p class="h2 text-center text-secondary">Join Your School</p>
+        <img class="mt-4" src="../static/img/link-svgrepo-com.svg" alt="">
+        <p class="h5 text-center text-secondary mt-5">Please fill out the field below to join your latter home!</p>
+        <form action="" autocomplete="off">
+            <div class="form-group mt-5 d-flex">
+                <input class="form-control w-75" type="text" name="email">
+                <label>Code</label>
+                <button class="w-25" type="submit">Join</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../static/libraries/jquery/index.js"></script>
+<script src="../static/libraries/bootstrap/js/index.js"></script>
+<script src="../static/js/user.js"></script>
+</body>
+</html>

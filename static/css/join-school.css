@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+body{
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    background: #f1f1f1;
+}
+
+img{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+}
+
+[class *= "h"], [class *= "display"]{
+    color: #555;
+}
+
+img.shape{
+    width: 40%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*Navbar*/
+
+.navbar .navbar-brand{
+    color: #f2463d;
+}
+
+.navbar .btn-danger{
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    background: #f2463d;
+    color: rgb(240, 240, 240);
+    border: 0;
+    outline: 0;
+    transition: .4s;
+}
+
+.navbar .btn-danger:hover, .navbar .btn-danger:focus{
+    color: rgb(240, 240, 240);
+    background: #d63f24;
+}
+
+.navbar .btn-danger:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 10px #f2463d;
+}
+
+.navbar .navbar-nav .nav-link{
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-link:before{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: #f2463d;
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    opacity: 0;
+    transition: .3s;
+}
+
+.navbar .navbar-nav .nav-link:hover:before, .navbar .navbar-nav .nav-link:focus:before{
+    bottom: 0;
+    opacity: 1;
+}
+
+.navbar .navbar-nav .active:before{
+    bottom: 0;
+    opacity: 1;
+}
+
+/*Join*/
+.row{
+    height: 100vh;
+}
+
+.join img{
+    width: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.join form .form-group{
+    position: relative;
+}
+
+.join form .form-group .form-control{
+    height: 55px;
+    color: #666;
+    font-size: 22px;
+    background: #f1f1f1;
+    border-radius: .25rem 0px 0 .25rem;
+}
+
+.join form .form-group .form-control:focus{
+    box-shadow: 0 0 0 !important;
+    border: 1px solid transparent;
+}
+
+.join form .form-group label{
+    color: #777;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    transition: .3s;
+    cursor: inherit;
+}
+
+.join form .form-group .form-control:focus + label{
+    font-size: 14px;
+    left: 1px;
+    top: -30px;
+    cursor: default;
+}
+
+.join form button[type = "submit"]{
+    background: #f2463d;
+    color: #fff;
+    font-size: 22px;
+    border: 0;
+    outline: 0;
+    border-radius: 0px .25rem .25rem 0;
+    transition: .3s;
+}
+
+.join form button[type = "submit"]:hover, .join form button[type = "submit"]:focus{
+    color: rgb(240, 240, 240);
+    background: #d63f24;
+}
+
+.join form button[type = "submit"]:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: 2px 2px 10px #f2463d;
+}
