@@ -1,5 +1,4 @@
 const fs = require('fs');
-const mailer = require("./email_test")
 const crypto = require("crypto");
 const nodemailer = require('nodemailer');
 require('dotenv').config();
@@ -32,27 +31,22 @@ function isEmailValid(email) {
         return false;
 
     const domainParts = parts[1].split(".");
-    if (domainParts.some(function (part) { return part.length > 63; }))
-        return false;
+    return !domainParts.some(function (part) {
+        return part.length > 63;
+    });
 
-    return true;
+
 }
 
 function username_exists(username) {
-    const usernames = JSON.parse(fs.readFileSync("data/usernames.json"));
-    if (username in Object.values(usernames)) {
-        return true;
-    } else {
-        return false;
-    }
+    const usernames = JSON.parse(fs.readFileSync("data/usernames.json").toString());
+    return Object.values(usernames).includes(username);
 }
 
 function email_taken(email) {
-    const emails = Object.keys(JSON.parse(fs.readFileSync("data/usernames.json").toString()));
-    if (email in emails) {
-        return true;
-    }
-    return false;
+    const emails = Object.keys(JSON.parse(fs.readFileSync("data/accounts.json").toString()));
+    return emails.includes(email);
+
 }
 
 
@@ -65,7 +59,7 @@ function create_account(username, password, email, hostname) {
             return false;
         } else {
             const id = String(crypto.randomBytes(20).toString('hex'));
-            const data = JSON.parse(fs.readFileSync("data/codes.json"));
+            const data = JSON.parse(fs.readFileSync("data/codes.json").toString());
             data['items'].push({
                 "code": id,
                 "email": email,
@@ -91,42 +85,39 @@ function create_account(username, password, email, hostname) {
             console.log("Sent email")
             fs.writeFileSync("data/codes.json", JSON.stringify(data));
             return true;
-        };
-    };
+        }
+    }
 
-};
+}
 
 
 function verify(code) {
-    let codes_data = JSON.parse(fs.readFileSync("data/codes.json"));
+    let codes_data = JSON.parse(fs.readFileSync("data/codes.json").toString());
     let iterator;
     for (const index in codes_data['items']) {
         iterator = codes_data['items'][index];
-        if (iterator['code'] == code) {
+        if (iterator['code'] === code) {
             delete codes_data['items'][index];
-
-            fs.writeFileSync("data/codes.json", JSON.stringify(codes_data['items'].filter(x => x !== null)));
+            let usernames = JSON.parse(fs.readFileSync("data/usernames.json").toString());
+            usernames[iterator['email']] = iterator['username'];
+            fs.writeFileSync(`data/user-data/${iterator['email']}.json`, JSON.stringify({"schools_owner": [], 'school_in': []}));
+            fs.writeFileSync("data/usernames.json", JSON.stringify(usernames));
+            fs.writeFileSync("data/codes.json", JSON.stringify({"items": codes_data['items'].filter(x => x !== null)}));
             return iterator;
-        } else {
-            continue;
         }
     }
     return false;
 
 
 
-};
+}
 
 
 function login(email, password) {
-    const accounts = JSON.parse(fs.readFileSync("data/accounts.json"));
-    if (accounts[email] === password) {
-        return true;
-    } else {
-        return false;
-    };
+    const accounts = JSON.parse(fs.readFileSync("data/accounts.json").toString());
+    return accounts[email] === password
 
-};
+}
 
 module.exports.login = login;
 module.exports.verify = verify;
