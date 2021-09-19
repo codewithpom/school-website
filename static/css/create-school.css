@@ -134,7 +134,7 @@ img.shape{
     transition: .3s;
 }
 
-.create form button[type = "submit"]:hover, .join form button[type = "submit"]:focus{
+.create form button[type = "submit"]:hover, .create form button[type = "submit"]:focus{
     color: rgb(240, 240, 240);
     background: #d63f24;
 }

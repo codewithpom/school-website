@@ -1,0 +1,136 @@
+.display-3{
+    cursor: default;
+}
+
+.overview img{
+    width: 70px;
+    margin-top: -30px;
+}
+
+.overview .h5{
+    position: relative;
+    width: 25%;
+}
+
+.overview .h5:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    background: #f2463d;
+    border-radius: 30px;
+}
+
+.school-profile img{
+    width: 80px;
+    border-radius: 50%;
+    background: #f1f1f1;
+}
+
+.school-profile button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 20px;
+    position: absolute;
+    left: 50px;
+    top: calc(100% - 20px);
+}
+
+table{
+    height: 200px;
+    display: block;
+    overflow: auto;
+}
+
+table tr{
+    width: 95%;
+    float: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-left: 10px;
+    border-bottom-width: 1px;
+}
+
+table::-webkit-scrollbar{
+    width: 5px;
+    background: #f1f1f1;
+    border-radius: 0 .25rem .25rem 0;
+}
+
+table::-webkit-scrollbar-thumb{
+    background: #999;
+    border-radius: 0 .25rem .25rem 0;
+}
+
+table::-webkit-scrollbar-thumb:hover{
+    background: #888;
+}
+
+table th, table td{
+    padding: 15px !important;
+    color: #666;
+    border-bottom-width: 0px !important;
+    display: flex;
+}
+
+form .form-group{
+    position: relative;
+}
+
+form .form-group .form-control{
+    height: 55px;
+    color: #666;
+    font-size: 22px;
+    background: #f1f1f1;
+    border-radius: .25rem 0px 0px .25rem;
+}
+
+form .form-group .form-control:focus{
+    box-shadow: 0 0 0 !important;
+    border: 1px solid transparent;
+}
+
+form .form-group label{
+    color: #777;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: .3s;
+    cursor: inherit;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*Info*/
+.info button[type = "submit"]{
+    background: #f2463d;
+    color: #fff;
+    height: 55px;
+    font-size: 22px;
+    border: 0;
+    outline: 0;
+    transition: .3s;
+}
+
+.info button[type = "submit"]:hover, .info button[type = "submit"]:focus{
+    color: rgb(240, 240, 240);
+    background: #d63f24;
+}
+
+.info button[type = "submit"]:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 10px #f2463d;
+}
