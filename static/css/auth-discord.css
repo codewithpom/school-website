@@ -100,7 +100,6 @@ img.shape{
     color: #666;
     font-size: 22px;
     background: #f1f1f1;
-    border-radius: .25rem 0px 0px .25rem;
 }
 
 .auth form .form-group .form-control:focus{

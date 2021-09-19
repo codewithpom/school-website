@@ -50,7 +50,7 @@ $(document).ready(function () {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
-    <link rel="stylesheet" href="../static/css/authed-discord.css">
+    <link rel="stylesheet" href="../static/css/authed-discord.css">x
 </head>
 <body>
 
