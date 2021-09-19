@@ -83,6 +83,33 @@ img.shape{
     opacity: 1;
 }
 
+.navbar .user-area img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f1f1;
+}
+
+.navbar .user-area .nav-link img{
+    width: 24px;
+    height: 24px;
+}
+
+.navbar .user-area .dropdown-menu{
+    left: -100%;
+}
+
+.navbar .user-area .dropdown-menu .dropdown-item div{
+    margin-left: 20px;
+}
+
+.navbar .user-area .dropdown-menu .dropdown-item div p{
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /*Hero*/
 .hero .btn{
     width: 40%;
