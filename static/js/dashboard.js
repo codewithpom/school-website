@@ -1,4 +1,4 @@
-import {sndRqst} from "./send-form";
+import {sndRqst} from "./send-form.js";
 
 $(document).ready(function () {
     //Variable
