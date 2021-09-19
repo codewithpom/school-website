@@ -13,7 +13,37 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="btn btn-danger d-lg-none">Login</button>
+<!--        <button class="btn btn-danger d-lg-none">Login</button>-->
+        <div class="user-area d-flex align-items-center flex-row-reverse d-lg-none">
+            <img src="../static/img/student-svgrepo-com.svg" alt="">
+            <div class="nav-item dropdown px-5 py-3">
+                <a class="nav-link dropdown-toggle" href="#" id="userSmDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../static/img/notification-svgrepo-com.svg" alt="">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userSmDropdown">
+                    <li class="p-2"><a class="dropdown-item d-flex align-items-center" href="#">
+                        <img src="../static/img/student-svgrepo-com.svg" alt="">
+                        <div class="ml-3">
+                            <p class="h6">Title</p>
+                            <p>this is a notification</p>
+                        </div>
+                    </a></li>
+                    <li class="p-2"><a class="dropdown-item d-flex align-items-center" href="#">
+                        <img src="../static/img/student-svgrepo-com.svg" alt="">
+                        <div class="ml-3">
+                            <p class="h6">Title</p>
+                            <p>this is a notification</p>
+                        </div>
+                    </a></li><li class="p-2"><a class="dropdown-item d-flex align-items-center" href="#">
+                    <img src="../static/img/student-svgrepo-com.svg" alt="">
+                    <div class="ml-3">
+                        <p class="h6">Title</p>
+                        <p>this is a notification</p>
+                    </div>
+                </a></li>
+                </ul>
+            </div>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,13 +72,13 @@
             </ul>
         </div>
 <!--        <button class="btn btn-danger d-none d-lg-block">Login</button>-->
-        <div class="user-area d-flex align-items-center">
+        <div class="user-area align-items-center flex-row-reverse d-none d-lg-flex">
             <img src="../static/img/student-svgrepo-com.svg" alt="">
             <div class="nav-item dropdown px-5 py-3">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../static/img/notification-svgrepo-com.svg" alt="">
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
                     <li class="p-2"><a class="dropdown-item d-flex align-items-center" href="#">
                         <img src="../static/img/student-svgrepo-com.svg" alt="">
                         <div class="ml-3">
