@@ -50,16 +50,16 @@ $(document).ready(function () {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
-    <link rel="stylesheet" href="../static/css/email-checked.css">
+    <link rel="stylesheet" href="../static/css/authed-discord.css">
 </head>
 <body>
 
 <div class="container">
     <div class="row d-flex align-items-center">
         <div class="col-10 offset-1 col-md-8 offset-md-2 bg-white p-5 rounded mail-sent">
-            <p class="h2 text-center text-secondary">Your Account Verified</p>
-            <img class="mt-4" src="../static/img/open-email-message-svgrepo-com.svg" alt="">
-            <p class="h5 text-center text-secondary mt-5">Welcome to our customers community, You can <a class="text-secondary" href="user.html">Login</a></p>
+            <p class="h2 text-center text-secondary">Bot Added To Your Server</p>
+            <img class="mt-4" src="../static/img/add-svgrepo-com.svg" alt="">
+            <p class="h5 text-center text-secondary mt-5">Check your server, We're there to help you.</p>
         </div>
     </div>
 </div>

@@ -25,5 +25,5 @@ export async function sndRqst(url, form) {
         }
     });
 
-    return await response;
+    return await 'Done';
 }
