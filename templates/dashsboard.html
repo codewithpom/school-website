@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libraries/bootstrap/css/index.css">
     <link rel="stylesheet" href="../static/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 <body class="bg-light">
 
@@ -66,52 +68,22 @@
 <div class="container-fluid">
     <div class="row d-flex justify-content-around mt-5">
         <div class="col-10 col-lg-5 bg-white shadow rounded p-4">
-            <p class="display-3">Classes</p>
+            <p class="display-3">Queries and Complains</p>
             <hr>
             <table class="table mt-5 bg-light rounded shadow-sm">
-                <tbody>
+                <tbody id="queries">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="row">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Teacher</th>
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+
+                <tr v-for="i in queries">
+                    <th scope="row">{{queries.indexOf(i) + 1}}</th>
+                    <td>{{i['name']}}</td>
+                    <td>{{i['time']}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
@@ -312,8 +284,19 @@
     </div>
 </div>
 
+
 <script src="../static/libraries/jquery/index.js"></script>
 <script src="../static/libraries/bootstrap/js/index.js"></script>
 <script src="../static/js/dashboard.js" type="module"></script>
+
+<script>
+    const myObject = new Vue({
+        el: '#queries',
+        data: {
+            queries: []
+        }
+    })
+
+</script>
 </body>
 </html>

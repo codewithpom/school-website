@@ -3,15 +3,21 @@ const bodyParser = require('body-parser');
 const functions = require("./test");
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
+const school_api = require("./api/schools");
 const app = express();
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/static", express.static("static"))
+app.use("/school", school_api);
 
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/templates/index.html")
+})
 app.get("/login", (req, res) => {
     const email = req.cookies['email'];
     const password = req.cookies['password'];
-    if (email != undefined && password != undefined) {
+    if (email !== undefined && password !== undefined) {
         let correct_credentials = functions.login(email, password);
         console.log(correct_credentials);
         if (correct_credentials) {
@@ -20,10 +26,10 @@ app.get("/login", (req, res) => {
         } else {
             res.clearCookie("email");
             res.clearCookie("password");
-            res.sendFile(__dirname + "/templates/login.html")
+            res.sendFile(__dirname + "/templates/user.html")
         }
     } else {
-        res.sendFile(__dirname + "/templates/login.html");
+        res.sendFile(__dirname + "/templates/user.html");
     }
 
 });
@@ -34,24 +40,26 @@ app.post("/login", (req, res) => {
     const password = req.body.password;
     console.log(email)
     console.log(password)
-    if (email === undefined && password === undefined) {
+    if (email === undefined || password === undefined) {
         res.send("Wrong Form Body");
+        return "";
     }
     let correct_credentials = functions.login(email, password);
     if (correct_credentials) {
         res.cookie("email", email);
         res.cookie("password", password);
-        res.redirect(202, "/create");
+        res.redirect(202, "/me");
 
     } else {
-        res.send("Wrong Password or Account");
+        res.sendFile(__dirname + "/templates/user.html");
+
     }
 
 });
 
 
 app.get("/create", (req, res) => {
-    res.sendFile(__dirname + "/templates/signup.html")
+    res.sendFile(__dirname + "/templates/user.html")
 });
 
 app.post("/create", (req, res) => {
@@ -61,8 +69,9 @@ app.post("/create", (req, res) => {
     console.log(email);
     console.log(password);
     console.log(username);
-    if (username === email === password === undefined) {
+    if (username === undefined || password === undefined || email === undefined) {
         res.send("Wrong Form body");
+        return;
     }
     email = email.replace(" ", "");
     const username_exists = functions.username_exists(username);
@@ -76,12 +85,12 @@ app.post("/create", (req, res) => {
                 res.send("Email Already taken by someone else");
             } else {
                 functions.create_account(username, password, email, req.protocol + "://" + req.hostname);
-                res.send("Verification link sent")
+                res.sendFile(__dirname + "/templates/check-email.html")
             }
         }
     }
 
-})
+});
 
 app.get("/verify", (req, res) => {
     const code = req.query.code;
@@ -90,7 +99,7 @@ app.get("/verify", (req, res) => {
     } else {
         const data_of_code = functions.verify(code);
         if (data_of_code) {
-            const data = JSON.parse(fs.readFileSync("data/accounts.json"));
+            const data = JSON.parse(fs.readFileSync("data/accounts.json").toString());
             data[data_of_code['email']] = data_of_code['password'];
             fs.writeFileSync("data/accounts.json", JSON.stringify(data));
             res.cookie("email", data_of_code['email']);
@@ -101,7 +110,8 @@ app.get("/verify", (req, res) => {
         }
 
     }
-})
+});
+
 app.listen(80, () => {
     console.log(`Server started on port 80`);
 
