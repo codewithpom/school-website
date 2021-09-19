@@ -134,6 +134,16 @@ img.shape{
     transition: .3s;
 }
 
+.auth form button[type = "submit"].loading {
+    background: #f2463d !important;
+    pointer-events: none;
+}
+
+.auth form button[type = "submit"] img{
+    width: 100%;
+    height: 100%;
+}
+
 .auth form button[type = "submit"]:hover, .auth form button[type = "submit"]:focus{
     color: rgb(240, 240, 240);
     background: #d63f24;
